@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import './Nav.css';
 import Context from '../../context/Context.js';
 
 export default function Nav() {
 
   const context = useContext(Context);
+  const history = useHistory(History);
   
   const handleLogOut = () => {
     context.changeUsername('');
     context.toggleLoggedIn();
+    history.push('/welcome');
   }
   
   const handleLogIn = (e) => {
@@ -26,12 +28,13 @@ export default function Nav() {
   }
 
   return (
-    <>
+    <div className="nav">
       {context.loggedIn &&
         <>
           <span className="username">Logged in as: {context.username}</span>
           <Link onClick={handleLogOut} to="/welcome" className="logout">Log out</Link>
           <Link to="/info" className="info">Information Page</Link>
+          <Link to="/jobs">My Job List</Link>
         </>
       }
 
@@ -47,6 +50,6 @@ export default function Nav() {
           </form>
         </>
       }
-    </>
+    </div>
   )
 };

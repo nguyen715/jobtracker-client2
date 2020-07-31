@@ -1,0 +1,13 @@
+.header {
+  border: solid black 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active, a:visited, a:hover {
+  color: #000;
+}

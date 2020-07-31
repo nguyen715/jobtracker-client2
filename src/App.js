@@ -5,15 +5,38 @@ import Header from './components/Header/Header.js';
 import Main from './components/Main/Main.js';
 
 class App extends Component {
+
   state = {
     loggedIn: true,
-    username: 'user11',
+    userId: 1,
+    username: 'Minh',
+    userPosts: [],
+
+    changeUserId: (id) => {
+      this.setState({user_id: id})
+    },
+
     changeUsername: (newName) => {
       this.setState({username: newName})
     },
+    
     toggleLoggedIn: () => {
         this.setState({loggedIn: !this.state.loggedIn})
+    },
+
+    addPost: (newPost) => {
+      this.setState({userPosts: [...this.state.userPosts, newPost]})
     }
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:8000/users/${this.state.userId}/posts`)
+    .then(res => res.json())
+    .then(posts => {
+      this.setState({
+        userPosts: posts
+      })
+    })
   }
 
   render() {
