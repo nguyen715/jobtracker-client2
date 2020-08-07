@@ -79,7 +79,7 @@ export default function NewPostForm() {
       body: JSON.stringify(post)
     }
 
-    fetch(`http://localhost:8000/users/${context.userId}/posts`, options)
+    fetch(`https://secure-caverns-29486.herokuapp.com/users/${context.userId}/posts`, options)
     .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later.');

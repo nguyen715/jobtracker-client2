@@ -15,7 +15,7 @@ export default function Post(props) {
   const handleDeleteClick = (e) => {
     const postId = props.postId;
 
-    fetch(`http://localhost:8000/posts/${postId}`, { method: "DELETE" })
+    fetch(`https://secure-caverns-29486.herokuapp.com/posts/${postId}`, { method: "DELETE" })
       .then(
         context.removePost(postId)
       );
