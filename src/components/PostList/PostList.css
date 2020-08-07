@@ -1,3 +1,30 @@
 ul {
   list-style: none;
 }
+
+.create-post-button {
+  margin-top: 20px;
+  background-color: #f3f3f3;
+  border-style: none;
+}
+
+.create-post-button img {
+  width: 70px;
+  cursor: pointer;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.post {
+  flex-basis: 100%;
+  }
+
+@media all and (min-width: 800px) {
+  .post {
+    flex-basis: 44%;
+  }
+}

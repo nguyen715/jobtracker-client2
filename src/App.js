@@ -26,6 +26,11 @@ class App extends Component {
 
     addPost: (newPost) => {
       this.setState({userPosts: [...this.state.userPosts, newPost]})
+    },
+
+    removePost: (postId) => {
+      const newPostArray = this.state.userPosts.filter(post => post.id !== postId)
+      this.setState({ userPosts: newPostArray })
     }
   }
 

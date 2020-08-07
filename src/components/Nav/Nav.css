@@ -1,3 +1,11 @@
-.username, .logout, .info {
-  display: block;
+.nav {
+  margin: 25px 25px 0px 0px;
+  font-weight: bold;
+  font-size: 18px;
 }
+
+.username, .logout, .info, .jobs {
+  display: block;
+  width: auto;
+}
+

@@ -34,7 +34,7 @@ export default function Nav() {
           <span className="username">Logged in as: {context.username}</span>
           <Link onClick={handleLogOut} to="/welcome" className="logout">Log out</Link>
           <Link to="/info" className="info">Information Page</Link>
-          <Link to="/jobs">My Job List</Link>
+          <Link to="/jobs" className="jobs">My Job List</Link>
         </>
       }
 

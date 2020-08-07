@@ -1,30 +1,61 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../../context/Context.js';
 import './Post.css';
 
 export default function Post(props) {
+  const context = useContext(Context);
+
+  const shortenUrl = (urlString) => {
+    if(urlString.length > 39)
+      return urlString.slice(8, 34) + "...";
+    else
+      return urlString.slice(8, 34);
+  };
+
+  const handleDeleteClick = (e) => {
+    const postId = props.postId;
+
+    fetch(`http://localhost:8000/posts/${postId}`, { method: "DELETE" })
+      .then(
+        context.removePost(postId)
+      );
+  }
+
   return (
     <div className="post">
-      <div className="">
-        <span>Title: </span><span>{props.title}</span>
+      <div className="field">
+        <span className="label">Title: </span>
+        <span className="data">{props.title}</span>
       </div>
       
-      <div className="">
-        <span>Location: </span><span>{props.location}</span>
+      <div className="field">
+        <span className="label">Location: </span>
+        <span className="data">{props.location}</span>
       </div>
       
-      <div className="">
-        <span>URL: </span><span>{props.url}</span>
+      <div className="field">
+        <span className="label">URL: </span>
+        <span className="data">
+          <a href={props.url}>
+            {shortenUrl(props.url)}
+          </a>
+        </span>
       </div>
       
-      <div className="">
-        <span>Notes: </span><div>{props.notes}</div>
+      <div className="field">
+        <span className="label">Notes: </span>
+        <span className="data">{props.notes}</span>
       </div>
       
-      <div className="">
-        <span>Rating: </span><span>{props.rating}</span>
+      <div className="field">
+        <span className="label">Rating: </span>
+        <span className="data">{props.rating}</span>
       </div>
       
       {/* optional edit and delete buttons, time permitting */}
+      <button className="delete-button" onClick={handleDeleteClick}>
+        <img src={require('../../images/delete-button.png')} alt="delete button"></img>
+      </button>
     </div>
   )
 };

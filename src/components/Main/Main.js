@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import './Main.css';
-import Context from '../../context/Context';
 import Info from '../Info/Info.js';
 import Welcome from '../Welcome/Welcome.js';
 import PostList from '../PostList/PostList.js';
 import NewPostForm from '../NewPostForm/NewPostForm.js';
 
 function Main() {
-  const context = useContext(Context);
 
   return (
     <div className="main">

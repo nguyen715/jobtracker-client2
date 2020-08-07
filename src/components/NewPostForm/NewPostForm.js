@@ -97,7 +97,7 @@ export default function NewPostForm() {
       {renderRedirect()}
 
       <form id="create-new-post" action="" onSubmit={handleSubmitClick}>
-        <div>
+        <div className="field">
           <label htmlFor="title">Title* </label>
           <input type="text"
                 id="title"
@@ -106,7 +106,7 @@ export default function NewPostForm() {
                 required/>
         </div>
 
-        <div>
+        <div className="field">
           <label htmlFor="url">URL* </label>
           <input type="url"
                 id="url"
@@ -115,7 +115,7 @@ export default function NewPostForm() {
                 required/>
         </div>
         
-        <div>
+        <div className="field">
           <label htmlFor="location">Location </label>
           <input type="text"
                 id="location"
@@ -124,7 +124,7 @@ export default function NewPostForm() {
           />
         </div>
         
-        <div>
+        <div className="field">
           <label htmlFor="notes">Notes </label>
           <textarea id="notes"
                     value={post.notes}
@@ -132,7 +132,7 @@ export default function NewPostForm() {
           </textarea>
         </div>
         
-        <div>
+        <div className="field">
           <label htmlFor="rating">Rating </label>
           <select id="rating"
                   value={post.rating}
@@ -151,7 +151,9 @@ export default function NewPostForm() {
           </select>
         </div>
 
-        <button type="submit">Submit</button>
+        <div className="button-field">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   )

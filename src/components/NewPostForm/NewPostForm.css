@@ -1,0 +1,29 @@
+form {
+  text-align: left;
+  display: inline-block;
+  width: 400px;
+  margin-top: 20px;
+}
+
+.field {
+  display: block;
+  margin-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  text-align: left;
+  width: 100px;
+}
+
+input, textarea, select {
+  display: inline-block;
+}
+
+input, textarea {
+  width: 200px;
+}
+
+.button-field {
+  text-align: center;
+}

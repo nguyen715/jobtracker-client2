@@ -10,24 +10,28 @@ export default function PostList() {
   return (
     <>
       <Link to="/create-post">
-        <button className="create-post-button">Add New Post</button>
+        <button className="create-post-button">
+          <img src={require('../../images/plus-button.png')} className="button-image" alt="create new post" />
+        </button>
       </Link>
-      {context.userPosts.map(post => {
-        return (
-          <Post 
-            title={post.title}
-            url={post.url}
-            location={post.location}
-            notes={post.notes}
-            rating={post.rating}
-          />
-        )
-      })}
+
+      <div className="post-list">
+        {context.userPosts.map(post => {
+          return (
+            <Post 
+              key={post.id}
+              title={post.title}
+              url={post.url}
+              location={post.location}
+              notes={post.notes}
+              rating={post.rating}
+              className="post"
+              postId={post.id}
+            />
+          )})
+        }
+      </div>
     </>
-    // <ul className="post-list">
-    //   <li><Post title="" url="" location="" notes="" rating=""></Post></li>
-    //   <li><Post></Post></li>
-    //   <li><Post></Post></li>
-    // </ul>
+
   )
 };

@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+
 .header {
-  border: solid black 1px;
-  display: flex;
-  justify-content: space-between;
+  background-color: #e8e8e8;
+  border-bottom: solid black 3px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  font-family: 'Changa', sans-serif;
+  font-size: 50px;
+  margin: 0;
+}
+
+@media all and (min-width: 800px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    margin: 30px 0px 0px 50px;
+  }
 }
 
 a {
