@@ -13,29 +13,41 @@ class App extends Component {
     userPosts: [],
 
     changeUserId: (id) => {
-      this.setState({user_id: id})
+      this.setState({ user_id: id })
     },
 
     changeUsername: (newName) => {
-      this.setState({username: newName})
+      this.setState({ username: newName })
     },
     
     toggleLoggedIn: () => {
-        this.setState({loggedIn: !this.state.loggedIn})
+      this.setState({ loggedIn: !this.state.loggedIn })
+    },
+
+    setLoggedInTrue: () => {
+      this.setState({ loggedIn: true })
+    },
+
+    setLoggedInFalse: () => {
+      this.setState({ loggedIn: false })
     },
 
     addPost: (newPost) => {
-      this.setState({userPosts: [...this.state.userPosts, newPost]})
+      this.setState({ userPosts: [...this.state.userPosts, newPost] })
     },
 
     removePost: (postId) => {
       const newPostArray = this.state.userPosts.filter(post => post.id !== postId)
       this.setState({ userPosts: newPostArray })
+    },
+
+    clearPosts: () => {
+      this.setState({ userPosts: [] })
     }
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8000/users/${this.state.userId}/posts`)
+    fetch(`https://secure-caverns-29486.herokuapp.com/users/${this.state.userId}/posts`)
     .then(res => res.json())
     .then(posts => {
       this.setState({

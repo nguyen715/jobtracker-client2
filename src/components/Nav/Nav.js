@@ -10,7 +10,9 @@ export default function Nav() {
   
   const handleLogOut = () => {
     context.changeUsername('');
-    context.toggleLoggedIn();
+    context.changeUserId('');
+    context.setLoggedInFalse();
+    context.clearPosts();
     history.push('/welcome');
   }
   
@@ -20,7 +22,10 @@ export default function Nav() {
     // send info to server, validate against database credentials
     // then, if valid, redirect to home page of app
     context.changeUsername(username);
-    context.toggleLoggedIn();
+
+    // need to set state.userId right here as well; need to also write a getUserId function
+
+    context.setLoggedInTrue();
 
     console.log('username: ' + context.username);
 
@@ -29,7 +34,7 @@ export default function Nav() {
 
   return (
     <div className="nav">
-      {context.loggedIn &&
+      {context.loggedIn && 
         <>
           <span className="username">Logged in as: {context.username}</span>
           <Link onClick={handleLogOut} to="/welcome" className="logout">Log out</Link>
