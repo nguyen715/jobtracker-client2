@@ -25,9 +25,9 @@ export default function Welcome() {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
-    context.setEmail(email);
-    const postsList = Api.getPostsByEmail(email);
-    context.setPosts(postsList);
+    context.setEmail(email)
+    const postsList = Api.getPostsByEmail(email)
+    context.setPosts(postsList)
     setRedirect(true);
   }
 

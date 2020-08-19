@@ -7,7 +7,7 @@ import './NewPostForm.css';
 
 export default function NewPostForm() {
   const context = useContext(Context);
-  const [post, setPost] = useState({title:"", url:"", location:"", notes:"", rating:"1", user_email:context.email});
+  const [post, setPost] = useState({title:"", url:"", location:"", notes:"", rating:"1", email:context.email});
   const [redirect, setRedirect] = useState(false);
 
   const renderRedirect = () => {
@@ -23,7 +23,7 @@ export default function NewPostForm() {
       location: post.location,
       notes: post.notes,
       rating: post.rating,
-      user_email: context.email
+      email: context.email
     })
   };
 
@@ -34,7 +34,7 @@ export default function NewPostForm() {
       location: post.location,
       notes: post.notes,
       rating: post.rating,
-      user_id: post.user_id
+      email: context.email
     })
   };
 
@@ -45,7 +45,7 @@ export default function NewPostForm() {
       location: newLocation,
       notes: post.notes,
       rating: post.rating,
-      user_id: post.user_id
+      email: context.email
     })
   };
 
@@ -56,7 +56,7 @@ export default function NewPostForm() {
       location: post.location,
       notes: newNotes,
       rating: post.rating,
-      user_id: post.user_id
+      email: context.email
     })
   };
   
@@ -67,20 +67,14 @@ export default function NewPostForm() {
       location: post.location,
       notes: post.notes,
       rating: newRating,
-      user_id: post.user_id
+      email: context.email
     })
   };
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
 
-    const options = {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(post)
-    }
-
-    Api.createNewPost(post, context.email)
+    Api.createNewPost(post)
     .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later.');
