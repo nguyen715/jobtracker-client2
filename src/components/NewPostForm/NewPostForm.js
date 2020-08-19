@@ -80,7 +80,7 @@ export default function NewPostForm() {
       body: JSON.stringify(post)
     }
 
-    Api.createNewPost(post, email)
+    Api.createNewPost(post, context.email)
     .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later.');
