@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import Context from '../../context/Context.js';
+import Api from '../../api/api-service.js';
 import './NewPostForm.css';
 
 
 export default function NewPostForm() {
   const context = useContext(Context);
-  const [post, setPost] = useState({title:"", url:"", location:"", notes:"", rating:"1", user_id:context.userId});
+  const [post, setPost] = useState({title:"", url:"", location:"", notes:"", rating:"1", user_email:context.email});
   const [redirect, setRedirect] = useState(false);
 
   const renderRedirect = () => {
@@ -22,7 +23,7 @@ export default function NewPostForm() {
       location: post.location,
       notes: post.notes,
       rating: post.rating,
-      user_id: post.user_id
+      user_email: context.email
     })
   };
 
@@ -79,8 +80,7 @@ export default function NewPostForm() {
       body: JSON.stringify(post)
     }
 
-    // fetch(`http://localhost:8000/users/${context.userId}/posts`, options)
-    fetch(`https://secure-caverns-29486.herokuapp.com/users/${context.userId}/posts`, options)
+    Api.createNewPost(post, email)
     .then(res => {
       if(!res.ok) {
         throw new Error('Something went wrong, please try again later.');

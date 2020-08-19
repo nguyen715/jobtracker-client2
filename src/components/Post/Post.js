@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../../context/Context.js';
+import Api from '../../api/api-service.js';
 import './Post.css';
 
 export default function Post(props) {
@@ -15,11 +16,10 @@ export default function Post(props) {
   const handleDeleteClick = (e) => {
     const postId = props.postId;
 
-    // fetch(`http://localhost:8000/posts/${postId}`, { method: "DELETE" })
-    fetch(`https://secure-caverns-29486.herokuapp.com/posts/${postId}`, { method: "DELETE" })
-      .then(
-        context.removePost(postId)
-      );
+    Api.deletePostById(postId)
+    .then(
+      context.removePost(postId)
+    );
   }
 
   return (

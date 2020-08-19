@@ -7,29 +7,11 @@ import Main from './components/Main/Main.js';
 class App extends Component {
 
   state = {
-    loggedIn: true,
-    userId: 1,
-    username: 'Minh',
+    email: "",
     userPosts: [],
 
-    changeUserId: (id) => {
-      this.setState({ user_id: id })
-    },
-
-    changeUsername: (newName) => {
-      this.setState({ username: newName })
-    },
-    
-    toggleLoggedIn: () => {
-      this.setState({ loggedIn: !this.state.loggedIn })
-    },
-
-    setLoggedInTrue: () => {
-      this.setState({ loggedIn: true })
-    },
-
-    setLoggedInFalse: () => {
-      this.setState({ loggedIn: false })
+    setEmail: (email) => {
+      this.setState({ email: email })
     },
 
     addPost: (newPost) => {
@@ -41,19 +23,9 @@ class App extends Component {
       this.setState({ userPosts: newPostArray })
     },
 
-    clearPosts: () => {
-      this.setState({ userPosts: [] })
+    setPosts: (arrayOfPosts) => {
+      this.setState({ userPosts: arrayOfPosts })
     }
-  }
-
-  componentDidMount() {
-    fetch(`https://secure-caverns-29486.herokuapp.com/users/${this.state.userId}/posts`)
-    .then(res => res.json())
-    .then(posts => {
-      this.setState({
-        userPosts: posts
-      })
-    })
   }
 
   render() {
