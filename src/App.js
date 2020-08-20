@@ -11,11 +11,12 @@ class App extends Component {
     userPosts: [],
 
     setEmail: (email) => {
-      this.setState({ email: email })
+      this.setState({ email })
     },
 
     addPost: (newPost) => {
       this.setState({ userPosts: [...this.state.userPosts, newPost] })
+      // this.setState({ userPosts: this.state.userPosts.push(newPost) })
     },
 
     removePost: (postId) => {

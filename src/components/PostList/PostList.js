@@ -15,8 +15,8 @@ export default function PostList() {
         </button>
       </Link>
 
-      {/* <div className="post-list">
-        {context.userPosts.length > 0 && context.userPosts.map(post => {
+      <div className="post-list">
+        {context.userPosts.map(post => {
           return (
             <Post 
               key={post.id}
@@ -30,7 +30,7 @@ export default function PostList() {
             />
           )})
         }
-      </div> */}
+      </div>
     </>
 
   )

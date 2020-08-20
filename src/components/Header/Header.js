@@ -9,7 +9,7 @@ function Header() {
       <Link to="/">
         <h1 className="logo">Job Tracker</h1>
       </Link>
-      <Nav className="nav" />
+      {/* <Nav className="nav" /> */}
     </div>
   )
 };

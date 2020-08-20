@@ -1,13 +1,11 @@
 import config from '../config.js';
 
 const getPostsByEmail = (email) => {
-  fetch(`${config.BASE_URL}/posts?email=${email}`)
-  .then(data => data.json());
+  return fetch(`${config.BASE_URL}/posts/email/${email}`);
 };
 
 const getPostsByToken = (token) => {
-  fetch(`${config.BASE_URL}/?token=${token}`)
-  .then(data => data.json());
+  return fetch(`${config.BASE_URL}/posts/token/${token}`);
 };
 
 const createNewPost = (post) => {
@@ -17,11 +15,11 @@ const createNewPost = (post) => {
     body: JSON.stringify(post)
   }
   
-  fetch(`${config.BASE_URL}/posts/`, options)
-}
+  return fetch(`${config.BASE_URL}/posts/`, options);
+};
 
 const deletePostById = (postId) => {
-  fetch(`${config.BASE_URL}/posts/${postId}`, { method: "DELETE" })
+  return fetch(`${config.BASE_URL}/posts/${postId}`, { method: "DELETE" })
 };
 
 export default {
