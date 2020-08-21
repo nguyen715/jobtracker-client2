@@ -8,10 +8,15 @@ class App extends Component {
 
   state = {
     email: "",
+    token: "",
     userPosts: [],
 
     setEmail: (email) => {
       this.setState({ email })
+    },
+
+    setToken: (token) => {
+      this.setState({ token })
     },
 
     addPost: (newPost) => {

@@ -10,7 +10,8 @@ function Main() {
   return (
     <div className="main">
       <Route exact path="/" component={Welcome}></Route>
-      <Route path="/jobs" component={PostList}></Route>
+      <Route path="/jobs/:token" component={PostList}></Route>
+      <Route exact path="/jobs" component={PostList}></Route>
       <Route path="/create-post" component={NewPostForm}></Route>
     </div>
   )

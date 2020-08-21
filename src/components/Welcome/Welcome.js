@@ -25,6 +25,17 @@ export default function Welcome() {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
+    Api.getToken(email)
+    .then(res => {
+      console.log(res);
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      const token = data.token;
+      context.setToken(token);
+      console.log(token);
+    })
     context.setEmail(email);
     Api.getPostsByEmail(email)
     .then(res => res.json())

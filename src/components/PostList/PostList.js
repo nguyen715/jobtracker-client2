@@ -1,14 +1,34 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import Context from '../../context/Context.js';
+import Api from '../../api/api-service.js';
 import Post from '../Post/Post.js';
 import './PostList.css';
 
 
 export default function PostList() {
   const context = useContext(Context);
+  const shareableLink = `https://jobtracker-rouge.vercel.app/jobs/${context.token}`;
+  const { token } = useParams();
+  debugger;
+  const tokenVal = context.token || token;
+
+
+  useEffect(() => {
+
+    if(tokenVal) {
+      Api.getPostsByToken(tokenVal)
+      .then(res => res.json())
+      .then(arrayOfPosts => context.setPosts(arrayOfPosts))
+    }
+  }, []);
+
   return (
     <>
+      { context.email && (
+        <span>Shareable URL for your list: {shareableLink}</span>
+      )}
+
       <Link to="/create-post">
         <button className="create-post-button">
           <img src={require('../../images/plus-button.png')} className="button-image" alt="create new post" />

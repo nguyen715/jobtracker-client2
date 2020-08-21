@@ -7,10 +7,18 @@ export default function Post(props) {
   const context = useContext(Context);
 
   const shortenUrl = (urlString) => {
-    if(urlString.length > 39)
-      return urlString.slice(8, 34) + "...";
-    else
-      return urlString.slice(8, 34);
+    if(urlString[4] === 's') {
+      if(urlString.length > 39)
+        return urlString.slice(8, 34) + "...";
+      else
+        return urlString.slice(8, 34);
+    }
+    else {
+      if(urlString.length > 38)
+        return urlString.slice(7, 33) + "...";
+      else
+        return urlString.slice(7, 33);
+    }
   };
 
   const handleDeleteClick = (e) => {

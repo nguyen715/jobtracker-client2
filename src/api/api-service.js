@@ -1,5 +1,9 @@
 import config from '../config.js';
 
+const getToken = (email) => {
+  return fetch(`${config.BASE_URL}/token/${email}`);
+}
+
 const getPostsByEmail = (email) => {
   return fetch(`${config.BASE_URL}/posts/email/${email}`);
 };
@@ -23,6 +27,7 @@ const deletePostById = (postId) => {
 };
 
 export default {
+  getToken,
   getPostsByEmail,
   getPostsByToken,
   createNewPost,
