@@ -33,9 +33,9 @@ export default function Welcome() {
       const token = data.token;
       context.setToken(token);
       console.log('token: ' + token);
+      context.setEmail(email);
+      setRedirect(true);
     })
-    context.setEmail(email);
-    setRedirect(true);
     // Api.getPostsByEmail(email)
     // .then(res => res.json())
     // .then(postsList => {
