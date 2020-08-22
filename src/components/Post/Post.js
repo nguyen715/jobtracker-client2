@@ -61,7 +61,6 @@ export default function Post(props) {
         <span className="data">{props.rating}</span>
       </div>
       
-      {/* optional edit and delete buttons, time permitting */}
       {context.email && (
         <button className="delete-button" onClick={handleDeleteClick}>
           <img src={require('../../images/delete-button.png')} alt="delete button"></img>

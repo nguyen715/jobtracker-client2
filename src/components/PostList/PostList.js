@@ -26,7 +26,10 @@ export default function PostList() {
     <>
       { context.email && (
         <>
-          <div id="shareable-link">Shareable URL for your list: <a href={shareableLink} target="_blank" rel="noopener noreferrer">{shareableLink}</a></div>
+          <div id="shareable-link">
+            <span>Shareable URL for your list: </span>
+            <a href={shareableLink} target="_blank" rel="noopener noreferrer">{shareableLink}</a>
+          </div>
 
           <Link to="/create-post">
             <button className="create-post-button">
