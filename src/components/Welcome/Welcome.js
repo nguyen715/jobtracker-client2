@@ -32,6 +32,7 @@ export default function Welcome() {
     .then(data => {
       const token = data.token;
       context.setToken(token);
+      console.log('token: ' + token);
     })
     context.setEmail(email);
     setRedirect(true);
