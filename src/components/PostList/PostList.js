@@ -15,7 +15,8 @@ export default function PostList() {
 
   useEffect(() => {
 
-    console.log('tokenVal: ' + tokenVal)
+    console.log('tokenVal: ' + tokenVal);
+    console.log('context.token: ' + context.token);
 
     if(tokenVal) {
       Api.getPostsByToken(tokenVal)
