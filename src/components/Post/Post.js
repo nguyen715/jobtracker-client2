@@ -45,7 +45,7 @@ export default function Post(props) {
       <div className="field">
         <span className="label">URL: </span>
         <span className="data">
-          <a href={props.url}>
+          <a href={props.url} target="_blank" rel="noopener noreferrer">
             {shortenUrl(props.url)}
           </a>
         </span>
@@ -62,9 +62,11 @@ export default function Post(props) {
       </div>
       
       {/* optional edit and delete buttons, time permitting */}
-      <button className="delete-button" onClick={handleDeleteClick}>
-        <img src={require('../../images/delete-button.png')} alt="delete button"></img>
-      </button>
+      {context.email && (
+        <button className="delete-button" onClick={handleDeleteClick}>
+          <img src={require('../../images/delete-button.png')} alt="delete button"></img>
+        </button>
+      )}
     </div>
   )
 };

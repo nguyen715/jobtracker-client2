@@ -21,7 +21,6 @@ class App extends Component {
 
     addPost: (newPost) => {
       this.setState({ userPosts: [...this.state.userPosts, newPost] })
-      // this.setState({ userPosts: this.state.userPosts.push(newPost) })
     },
 
     removePost: (postId) => {

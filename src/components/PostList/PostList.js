@@ -10,7 +10,6 @@ export default function PostList() {
   const context = useContext(Context);
   const shareableLink = `https://jobtracker-rouge.vercel.app/jobs/${context.token}`;
   const { token } = useParams();
-  debugger;
   const tokenVal = context.token || token;
 
 
@@ -26,14 +25,16 @@ export default function PostList() {
   return (
     <>
       { context.email && (
-        <span>Shareable URL for your list: {shareableLink}</span>
-      )}
+        <>
+          <div id="shareable-link">Shareable URL for your list: {shareableLink}</div>
 
-      <Link to="/create-post">
-        <button className="create-post-button">
-          <img src={require('../../images/plus-button.png')} className="button-image" alt="create new post" />
-        </button>
-      </Link>
+          <Link to="/create-post">
+            <button className="create-post-button">
+              <img src={require('../../images/plus-button.png')} className="button-image" alt="create new post" />
+            </button>
+          </Link>
+        </>
+      )}
 
       <div className="post-list">
         {context.userPosts.map(post => {
