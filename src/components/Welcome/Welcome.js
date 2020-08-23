@@ -35,12 +35,6 @@ export default function Welcome() {
       context.setEmail(email);
       setRedirect(true);
     })
-    // Api.getPostsByEmail(email)
-    // .then(res => res.json())
-    // .then(postsList => {
-    //   context.setPosts(postsList)
-    //   setRedirect(true);
-    // });
   }
 
   return (
