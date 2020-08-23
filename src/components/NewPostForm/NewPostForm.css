@@ -1,4 +1,4 @@
-form {
+#create-new-post {
   text-align: left;
   display: inline-block;
   width: 400px;
@@ -10,17 +10,17 @@ form {
   margin-bottom: 10px;
 }
 
-label {
+.field label {
   display: inline-block;
   text-align: left;
   width: 100px;
 }
 
-input, textarea, select {
+.field input, textarea, select {
   display: inline-block;
 }
 
-input, textarea {
+.field input, textarea {
   width: 200px;
 }
 

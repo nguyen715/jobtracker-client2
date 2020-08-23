@@ -63,7 +63,9 @@ export default function Welcome() {
         <form action="" onSubmit={handleSubmitClick}>
           <label htmlFor="email">Enter your email address: </label>
           <input type="text" id="email" value={email} onChange={e => emailChanged(e.target.value)} required></input>
-          <button type="submit">View My Saved Jobs</button>
+          <div class="btn-div">
+            <button type="submit">View My Saved Jobs</button>
+          </div>
         </form>
       </div>
     </>
