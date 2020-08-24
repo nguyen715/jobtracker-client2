@@ -23,7 +23,9 @@ There is also a special shareable link displayed on the page that the user can c
 
 ## Technologies used
 HTML5, CSS3, JS(ES6)
+
 React (including React Router, and React hooks), create-react-app, Jest, Vercel, fetch API
+
 Node.js, Express.js, postgreSQL, knex.js, Mocha, Chai, supertest, Heroku
 
 
