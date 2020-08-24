@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 import Context from '../context/Context';
 
-import App from '../App/App.js';
+import App from '../App.js';
 
 // const context = useContext(Context);
 

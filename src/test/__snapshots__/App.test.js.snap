@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="header"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <h1
+        className="logo"
+      >
+        Job Tracker
+      </h1>
+    </a>
+  </div>
+  <div
+    className="main"
+  >
+    <div
+      className="welcome"
+    >
+      <p>
+        Welcome to Jobtracker App! Use this app to keep track of job listings that you find during your job search. Enter your email address below to get started, and use the same email to come back to your saved list at any time.
+      </p>
+      <p>
+        Happy job hunting!
+      </p>
+      <form
+        action=""
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="email"
+        >
+          Enter your email address: 
+        </label>
+        <input
+          id="email"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="btn-div"
+        >
+          <button
+            type="submit"
+          >
+            View My Saved Jobs
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -46,7 +46,7 @@ export default function Post(props) {
         <span className="label">URL: </span>
         <span className="data">
           <a href={props.url} target="_blank" rel="noopener noreferrer">
-            {shortenUrl(props.url)}
+            {props.url && shortenUrl(props.url)}
           </a>
         </span>
       </div>
