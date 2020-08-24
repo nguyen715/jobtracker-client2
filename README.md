@@ -1,14 +1,24 @@
-##Jobtracker App
+## Jobtracker App
 
 Link to live app: https://jobtracker-rouge.vercel.app
 
-Summary of app:
+## Screenshots
+
+![Landing Page](/src/images/screenshots/jobtracker-landing-page.jpg)
+
+![Main Page](/src/images/screenshots/jobtracker-main-page.jpg)
+
+![Main Page](/src/images/screenshots/jobtracker-main-page2.jpg)
+
+![Form Page](/src/images/screenshots/jobtracker-form-page.jpg)
+
+## Summary of app
 
 This app allows users to keep track of job listings that they find when they are searching for jobs. From the landing page, the user enters their email address and is taken inside the app to a page showing job listing information that's been connected to that email address. The user can add new posts and delete existing posts.
 
 There is also a special shareable link displayed on the page that the user can copy and give to others if he/she wants to share the list of job posts.
 
-Technologies used:
+## Technologies used
 HTML5, CSS3, JS(ES6)
 React (including React Router, and React hooks), create-react-app, Jest, Vercel, fetch API
 Node.js, Express.js, postgreSQL, knex.js, Mocha, Chai, supertest, Heroku
