@@ -3,15 +3,15 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 import Context from '../context/Context';
 
-import Post from '../components/Post/Post.js';
+import PostList from '../components/PostList/PostList.js';
 
 // const context = useContext(Context);
 
-describe('Post component', () => {
+describe('PostList component', () => {
   it('renders the UI as expected', () => {
     const tree = renderer.create(
       <BrowserRouter>
-        <Post />
+        <PostList />
       </BrowserRouter>
     )
     .toJSON()

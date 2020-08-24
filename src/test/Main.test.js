@@ -3,15 +3,15 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 import Context from '../context/Context';
 
-import Post from '../components/Post/Post.js';
+import Main from '../components/Main/Main.js';
 
 // const context = useContext(Context);
 
-describe('Post component', () => {
+describe('Main component', () => {
   it('renders the UI as expected', () => {
     const tree = renderer.create(
       <BrowserRouter>
-        <Post />
+        <Main />
       </BrowserRouter>
     )
     .toJSON()
