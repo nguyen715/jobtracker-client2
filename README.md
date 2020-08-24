@@ -4,12 +4,16 @@ Link to live app: https://jobtracker-rouge.vercel.app
 
 ## Screenshots
 
+### Landing Page
 ![Landing Page](/src/images/screenshots/jobtracker-landing-page.jpg)
 
+### Main Page
 ![Main Page](/src/images/screenshots/jobtracker-main-page.jpg)
 
-![Main Page](/src/images/screenshots/jobtracker-main-page2.jpg)
+### Main Page
+![Main Page](/src/images/screenshots/jobtracker-main-page2.png)
 
+### Form Page
 ![Form Page](/src/images/screenshots/jobtracker-form-page.jpg)
 
 ## Summary of app
