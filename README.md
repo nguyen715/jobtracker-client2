@@ -4,6 +4,8 @@ Jobtracker
 ## Link to live app
 https://jobtracker-rouge.vercel.app
 
+demo account login credentials: demoaccount123@gmail.com
+
 ## Screenshots
 
 #### Landing Page
