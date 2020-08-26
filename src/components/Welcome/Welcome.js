@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Context from '../../context/Context.js';
-import Api from '../../api/api-service.js';
 import './Welcome.css';
 
 export default function Welcome() {
@@ -25,16 +24,21 @@ export default function Welcome() {
 
   const handleSubmitClick = (e) => {
     e.preventDefault();
-    Api.getToken(email)
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      const token = data.token;
-      context.setToken(token);
-      context.setEmail(email);
-      setRedirect(true);
-    })
+
+    context.setEmail(email);
+    window.localStorage.setItem('email', email);
+    setRedirect(true);
+
+    // Api.getToken(email)
+    // .then(res => {
+    //   return res.json();
+    // })
+    // .then(data => {
+    //   const token = data.token;
+    //   context.setToken(token);
+    //   context.setEmail(email);
+    //   setRedirect(true);
+    // })
   }
 
   return (

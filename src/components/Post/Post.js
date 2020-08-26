@@ -5,6 +5,9 @@ import './Post.css';
 
 export default function Post(props) {
   const context = useContext(Context);
+  const lsEmail = window.localStorage.getItem('email');
+
+  console.log(lsEmail);
 
   const shortenUrl = (urlString) => {
     if(urlString[4] === 's') {
@@ -61,7 +64,7 @@ export default function Post(props) {
         <span className="data">{props.rating}</span>
       </div>
       
-      {context.email && (
+      {lsEmail && (
         <button className="delete-button" onClick={handleDeleteClick}>
           <img src={require('../../images/delete-button.png')} alt="delete button"></img>
         </button>
