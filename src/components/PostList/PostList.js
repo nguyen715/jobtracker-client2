@@ -11,7 +11,7 @@ export default function PostList() {
   const shareableLink = `https://jobtracker-rouge.vercel.app/jobs/${context.token}`;
   const { token } = useParams();
   const tokenVal = context.token || token;
-  const lsEmail = window.localStorage.getItem('email');
+  const lsEmail = window.localStorage.getItem('email') || '';
 
   useEffect(() => {
     if(lsEmail.length > 0) {
