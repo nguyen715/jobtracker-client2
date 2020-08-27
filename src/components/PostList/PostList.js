@@ -10,13 +10,17 @@ export default function PostList() {
   const context = useContext(Context);
   const { token } = useParams();
   const [listCameIn, setListCameIn] = useState(false);
-  const tokenVal = context.token || token;
+  const tokenVal = token || context.token;
   const emailVal = context.email || window.localStorage.getItem('email') || '';
   const shareableLink = context.token
                         ? `https://jobtracker-rouge.vercel.app/jobs/${context.token}`
                         : `Loading...`;
 
   useEffect(() => {
+    if (token) {
+      window.localStorage.clear();
+    }
+
     if(emailVal.length > 0) {
       Api.getPostsByEmail(emailVal)
       .then(res => res.json())
@@ -35,7 +39,7 @@ export default function PostList() {
       })
     }
 
-    if(listCameIn) {
+    if(listCameIn && emailVal.length > 0) {
       Api.getToken(emailVal)
       .then(res => res.json())
       .then(data => {
@@ -44,6 +48,8 @@ export default function PostList() {
         context.setToken(token);
       })
     }
+
+    console.log(context.token);
   }, [listCameIn]);
 
   return (
