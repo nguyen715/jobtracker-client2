@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Context from '../../context/Context.js';
 import Api from '../../api/api-service.js';
@@ -8,36 +8,47 @@ import './PostList.css';
 
 export default function PostList() {
   const context = useContext(Context);
-  const shareableLink = `https://jobtracker-rouge.vercel.app/jobs/${context.token}`;
   const { token } = useParams();
+  const [listCameIn, setListCameIn] = useState(false);
   const tokenVal = context.token || token;
-  const lsEmail = window.localStorage.getItem('email') || '';
+  const emailVal = context.email || window.localStorage.getItem('email') || '';
+  const shareableLink = context.token
+                        ? `https://jobtracker-rouge.vercel.app/jobs/${context.token}`
+                        : `Loading...`;
 
   useEffect(() => {
-    if(lsEmail.length > 0) {
-      Api.getPostsByEmail(lsEmail)
+    if(emailVal.length > 0) {
+      Api.getPostsByEmail(emailVal)
       .then(res => res.json())
-      .then(arrayOfPosts => context.setPosts(arrayOfPosts))
+      .then(arrayOfPosts => {
+        context.setPosts(arrayOfPosts);
+        setListCameIn(true);
+      })
     }
 
     else if(tokenVal) {
       Api.getPostsByToken(tokenVal)
       .then(res => res.json())
-      .then(arrayOfPosts => context.setPosts(arrayOfPosts))
+      .then(arrayOfPosts => {
+        context.setPosts(arrayOfPosts);
+        setListCameIn(true);
+      })
     }
 
-    Api.getToken(lsEmail)
-    .then(res => res.json())
-    .then(data => {
-      const token = data.token;
-      window.localStorage.setItem('token', token);
-      context.setToken(token);
-    })
-  }, []);
+    if(listCameIn) {
+      Api.getToken(emailVal)
+      .then(res => res.json())
+      .then(data => {
+        const token = data.token;
+        window.localStorage.setItem('token', token);
+        context.setToken(token);
+      })
+    }
+  });
 
   return (
     <>
-      { lsEmail && (
+      { emailVal && (
         <>
           <div id="shareable-link">
             <span>Shareable URL for your list: </span>
