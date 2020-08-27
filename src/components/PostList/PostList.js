@@ -44,7 +44,7 @@ export default function PostList() {
         context.setToken(token);
       })
     }
-  });
+  }, [listCameIn]);
 
   return (
     <>
