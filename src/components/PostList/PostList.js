@@ -49,8 +49,7 @@ export default function PostList() {
       })
     }
 
-    console.log(context.token);
-  }, [listCameIn]);
+  }, [listCameIn, context, emailVal, token, tokenVal]);
 
   return (
     <>

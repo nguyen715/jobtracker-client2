@@ -7,8 +7,6 @@ export default function Post(props) {
   const context = useContext(Context);
   const lsEmail = window.localStorage.getItem('email');
 
-  console.log(lsEmail);
-
   const shortenUrl = (urlString) => {
     if(urlString[4] === 's') {
       if(urlString.length > 39)
